@@ -89,6 +89,8 @@ for nome, _, cx in FLASH:
     # o fundo de oncinha cinza da folha vira papel liso; o traço preto fica
     im = ImageEnhance.Contrast(folha.crop(cx)).enhance(1.12).point(lambda v: 255 if v > 196 else min(255, int(v * 1.08)))
     salva(im, os.path.join(A, 'flash', nome + '.webp'), 900, 84)
-salva(corta(abre('031_2.jpg'), 4 / 5, .3), os.path.join(A, 'padulla.webp'), 800, 82)
+# foto do "Quem tatua" enviada pelo cliente (quadrada, 1254 px): recorte 4:5 centrado no rosto
+foto = Image.open(os.path.join(SITE, '..', '_ref', 'padulla-foto.webp')); fw, fh = foto.size; cw = int(fh * 4 / 5); x0 = min(max(int(fw * .52) - cw // 2, 0), fw - cw)
+salva(foto.crop((x0, 0, x0 + cw, fh)), os.path.join(A, 'padulla.webp'), 1000, 86)
 json.dump(saida, open(os.path.join(SITE, 'assets', 'obras.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
 print(len(saida), 'obras,', sum(len(o['fotos']) for o in saida), 'fotos')
