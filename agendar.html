@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agendar · Padulla Ink</title>
+<meta name="description" content="Monte seu pedido de tattoo com o Padulla em 4 etapas: desenho, lugar do corpo, tamanho e ideia. O texto sai pronto pra colar na DM.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#070505">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Agendar com o Padulla">
+<meta property="og:image" content="https://azeugral.github.io/padulla-ink/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Unbounded:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=1">
+<link rel="stylesheet" href="assets/css/agendar.css?v=1">
+</head>
+<body class="pg-agendar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="estrela" viewBox="0 0 24 24"><path d="M12 0l1.3 10.7L24 12l-10.7 1.3L12 24l-1.3-10.7L0 12l10.7-1.3Z" fill="currentColor"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></symbol>
+  <symbol id="seta" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+</svg>
+
+<header class="nav solida">
+  <div class="nav-in">
+    <a href="index.html" class="marca" aria-label="Padulla Ink, voltar ao site">padulla<small>ink</small></a>
+    <a class="ag-voltar" href="index.html"><svg><use href="#seta"/></svg>Voltar ao site</a>
+  </div>
+</header>
+
+<main class="ag">
+  <div class="ag-in">
+    <header class="ag-cab">
+      <span class="orn" aria-hidden="true"></span>
+      <h1>Agendar com o Padulla</h1>
+      <p>Quatro etapas rápidas. No fim, o pedido sai copiado com a palavra GOTH na frente, do jeito que ele pede. É só colar na DM.</p>
+    </header>
+
+    <ol class="ag-passos" data-passos>
+      <li><button type="button" data-ir="0">Desenho</button></li>
+      <li><button type="button" data-ir="1">Corpo</button></li>
+      <li><button type="button" data-ir="2">Ideia</button></li>
+      <li><button type="button" data-ir="3">Você</button></li>
+    </ol>
+    <div class="ag-prog" aria-hidden="true"><i data-progresso></i></div>
+
+    <form class="ag-form" data-pedido novalidate>
+      <fieldset data-etapa>
+        <legend><h2>O que você quer tatuar?</h2></legend>
+        <div class="opcoes" role="radiogroup">
+          <label class="opcao"><input type="radio" name="tipo" value="Um disponível" required><span><b>Um disponível</b>Desenho pronto da folha atual</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Arte autoral do zero"><span><b>Arte autoral</b>Desenho criado pra você</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Freehand"><span><b>Freehand</b>Desenhado direto na pele</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Cobertura"><span><b>Cobertura</b>Cobrir uma tattoo antiga</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Caligrafia ou frase"><span><b>Caligrafia</b>Nome, frase ou lettering</span></label>
+        </div>
+        <div class="bloco-flash" data-bloco-flash hidden>
+          <h3>Qual desenho?</h3>
+          <div class="mini-flashes" role="radiogroup" aria-label="Desenhos disponíveis">
+            <label><input type="radio" name="flash" value="Estrela em halftone" data-id="estrela"><img src="assets/img/flash/estrela.webp" alt=""><span>Estrela em halftone</span></label>
+            <label><input type="radio" name="flash" value="Coração tribal" data-id="coracao"><img src="assets/img/flash/coracao.webp" alt=""><span>Coração tribal</span></label>
+            <label><input type="radio" name="flash" value="Anjo de pedra" data-id="anjo"><img src="assets/img/flash/anjo.webp" alt=""><span>Anjo de pedra</span></label>
+            <label><input type="radio" name="flash" value="Moonlight" data-id="moonlight"><img src="assets/img/flash/moonlight.webp" alt=""><span>Moonlight</span></label>
+            <label><input type="radio" name="flash" value="Cruz ornamental" data-id="cruz"><img src="assets/img/flash/cruz.webp" alt=""><span>Cruz ornamental</span></label>
+            <label><input type="radio" name="flash" value="Sweet life com terço" data-id="sweet"><img src="assets/img/flash/sweet.webp" alt=""><span>Sweet life com terço</span></label>
+          </div>
+        </div>
+        <p class="erro-msg" data-erro="0" hidden>Escolha uma opção pra seguir.</p>
+      </fieldset>
+
+      <fieldset data-etapa hidden>
+        <legend><h2>Onde e de que tamanho?</h2></legend>
+        <h3>Lugar do corpo</h3>
+        <div class="chips" data-grupo="lugar">
+          <label><input type="radio" name="lugar" value="Antebraço"><span>Antebraço</span></label>
+          <label><input type="radio" name="lugar" value="Braço"><span>Braço</span></label>
+          <label><input type="radio" name="lugar" value="Mão"><span>Mão</span></label>
+          <label><input type="radio" name="lugar" value="Ombro"><span>Ombro</span></label>
+          <label><input type="radio" name="lugar" value="Peito"><span>Peito</span></label>
+          <label><input type="radio" name="lugar" value="Costas"><span>Costas</span></label>
+          <label><input type="radio" name="lugar" value="Costela"><span>Costela</span></label>
+          <label><input type="radio" name="lugar" value="Lombar"><span>Lombar</span></label>
+          <label><input type="radio" name="lugar" value="Perna"><span>Perna</span></label>
+          <label><input type="radio" name="lugar" value="Pescoço"><span>Pescoço</span></label>
+          <label><input type="radio" name="lugar" value="Outro"><span>Outro</span></label>
+        </div>
+        <h3>Tamanho aproximado</h3>
+        <div class="chips chips-tam" data-grupo="tamanho">
+          <label><input type="radio" name="tamanho" value="Até 8 cm"><span><b>Até 8 cm</b>um cartão</span></label>
+          <label><input type="radio" name="tamanho" value="8 a 15 cm"><span><b>8 a 15 cm</b>uma palma</span></label>
+          <label><input type="radio" name="tamanho" value="15 a 25 cm"><span><b>15 a 25 cm</b>um palmo</span></label>
+          <label><input type="radio" name="tamanho" value="Mais de 25 cm"><span><b>Mais de 25 cm</b>peça grande</span></label>
+          <label><input type="radio" name="tamanho" value="Não sei, quero sugestão"><span><b>Não sei</b>quero sugestão</span></label>
+        </div>
+        <p class="erro-msg" data-erro="1" hidden>Marque o lugar do corpo e o tamanho.</p>
+      </fieldset>
+
+      <fieldset data-etapa hidden>
+        <legend><h2>Conta a ideia</h2></legend>
+        <label class="campo"><span data-ideia-rotulo>Como você imagina?</span>
+          <textarea id="ideia" rows="5" placeholder="Ex.: cybertribal no antebraço com uma espada no meio, bem fino e pontudo."></textarea>
+        </label>
+        <label class="campo"><span>Link de referência <em>(opcional)</em></span>
+          <input id="ref" type="url" inputmode="url" placeholder="Pinterest, Instagram, drive…">
+        </label>
+        <h3>É sua primeira tattoo?</h3>
+        <div class="chips" data-grupo="primeira">
+          <label><input type="radio" name="primeira" value="Sim"><span>Sim</span></label>
+          <label><input type="radio" name="primeira" value="Não"><span>Não</span></label>
+        </div>
+        <h3>Pra quando?</h3>
+        <div class="chips" data-grupo="quando">
+          <label><input type="radio" name="quando" value="Este mês"><span>Este mês</span></label>
+          <label><input type="radio" name="quando" value="Próximo mês"><span>Próximo mês</span></label>
+          <label><input type="radio" name="quando" value="Sem pressa"><span>Sem pressa</span></label>
+        </div>
+        <p class="erro-msg" data-erro="2" hidden>Conta um pouco da ideia pra ele conseguir orçar.</p>
+      </fieldset>
+
+      <fieldset data-etapa hidden>
+        <legend><h2>Quem é você?</h2></legend>
+        <label class="campo"><span>Seu nome</span><input id="nome" autocomplete="given-name" placeholder="Como quer ser chamado"></label>
+        <label class="campo"><span>Seu Instagram <em>(opcional)</em></span><input id="insta" autocomplete="off" autocapitalize="off" placeholder="@seuperfil"></label>
+        <div class="revisao">
+          <h3>Seu pedido</h3>
+          <pre data-texto></pre>
+        </div>
+        <p class="erro-msg" data-erro="3" hidden>Coloca seu nome pra seguir.</p>
+      </fieldset>
+
+      <div class="ag-acoes">
+        <button type="button" class="btn btn-linha" data-voltar hidden><span>Voltar</span></button>
+        <button type="button" class="btn btn-sangue" data-avancar><span>Continuar</span><svg><use href="#seta"/></svg></button>
+        <button type="submit" class="btn btn-sangue btn-g" data-enviar hidden><svg><use href="#ig"/></svg><span>Copiar e abrir a DM</span></button>
+      </div>
+      <p class="ag-rodape" data-rascunho></p>
+    </form>
+
+    <section class="pronto" data-pronto hidden tabindex="-1">
+      <span class="orn" aria-hidden="true"></span>
+      <h2>Pedido copiado</h2>
+      <p>A DM do Padulla abriu em outra aba. Cola o texto na conversa e envia. Se não abriu, toca no botão abaixo.</p>
+      <a class="btn btn-sangue btn-g" href="https://ig.me/m/padulla_ink" target="_blank" rel="noopener" data-abrir-dm><svg><use href="#ig"/></svg><span>Abrir a DM</span></a>
+      <button type="button" class="btn btn-linha" data-copiar><span>Copiar de novo</span></button>
+      <pre data-texto-final></pre>
+      <a class="link-dm" href="index.html">Voltar ao site</a>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <p class="assina">© 2026 Padulla Ink · Site por <a href="https://lrgz.com.br" target="_blank" rel="noopener">L R G Z</a></p>
+  </div>
+</footer>
+<script src="assets/js/agendar.js?v=1" defer></script>
+</body>
+</html>
